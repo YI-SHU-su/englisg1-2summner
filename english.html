@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halley 的暑假句型複習樂園</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mint:#eaf7f0;
+    --ink:#3a3a3a;
+    --unitA:#e8604c;   /* 紅蘋果 Lesson 1-7 */
+    --unitA-bg:#fdece8;
+    --unitB:#4f9d69;   /* 綠 Lesson 8-14 */
+    --unitB-bg:#eaf6ed;
+    --unitC:#ea6f9b;   /* 粉 Lesson 15-21 */
+    --unitC-bg:#fdeef4;
+    --unitD:#8c6fc7;   /* 紫 Lesson 22-28 */
+    --unitD-bg:#f1ecfb;
+    --unitE:#3f8ecf;   /* 藍 Lesson 29-35 */
+    --unitE-bg:#e9f3fb;
+    --gold:#ffb703;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle 7px at 6% 8%, #ffd166 96%, transparent 100%),
+      radial-gradient(circle 5px at 18% 22%, #4ecdc4 96%, transparent 100%),
+      radial-gradient(circle 8px at 32% 6%, #ff6b8b 96%, transparent 100%),
+      radial-gradient(circle 6px at 47% 18%, #9b72cf 96%, transparent 100%),
+      radial-gradient(circle 5px at 62% 5%, #6fcf97 96%, transparent 100%),
+      radial-gradient(circle 7px at 78% 15%, #ffd166 96%, transparent 100%),
+      radial-gradient(circle 6px at 92% 8%, #ff6b8b 96%, transparent 100%),
+      radial-gradient(circle 6px at 10% 90%, #9b72cf 96%, transparent 100%),
+      radial-gradient(circle 8px at 25% 96%, #6fcf97 96%, transparent 100%),
+      radial-gradient(circle 5px at 40% 88%, #ffd166 96%, transparent 100%),
+      radial-gradient(circle 7px at 55% 97%, #4ecdc4 96%, transparent 100%),
+      radial-gradient(circle 6px at 70% 90%, #ff6b8b 96%, transparent 100%),
+      radial-gradient(circle 5px at 85% 95%, #9b72cf 96%, transparent 100%),
+      radial-gradient(circle 6px at 97% 88%, #6fcf97 96%, transparent 100%),
+      #ffffff;
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    padding-bottom:80px;
+  }
+  h1,h2,h3, .display{
+    font-family:'Baloo 2', sans-serif;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    text-align:center;
+    padding:56px 20px 90px;
+    overflow:hidden;
+  }
+  .hero h1{
+    font-size:clamp(28px, 6vw, 46px);
+    color:var(--unitA);
+    margin:0 0 8px;
+    text-shadow: 2px 2px 0 #fff;
+  }
+  .hero p{
+    font-size:18px;
+    font-weight:700;
+    color:#5c5c5c;
+    margin:0;
+  }
+  .deco{
+    position:absolute;
+    font-size:44px;
+    animation: bob 3s ease-in-out infinite;
+  }
+  .deco.bunny{ left:5%; top:26px; font-size:56px; animation-delay:.2s;}
+  .deco.fox{ right:6%; top:24px; font-size:54px; animation-delay:.5s;}
+  .deco.f1{ left:16%; top:0; font-size:26px; animation-delay:.1s;}
+  .deco.f2{ right:18%; top:70px; font-size:24px; animation-delay:.8s;}
+  .deco.f3{ left:1%; top:100px; font-size:22px; animation-delay:1.1s;}
+  .deco.f4{ right:1%; top:100px; font-size:26px; animation-delay:.4s;}
+  @keyframes bob{
+    0%,100%{ transform: translateY(0) rotate(-3deg);}
+    50%{ transform: translateY(-9px) rotate(3deg);}
+  }
+
+  .guide-bubble{
+    max-width:520px;
+    margin:26px auto 0;
+    background:#fff;
+    border-radius:28px;
+    padding:16px 24px;
+    font-weight:700;
+    font-size:16px;
+    box-shadow: 0 8px 0 #d8ecdf;
+    position:relative;
+  }
+  .guide-bubble:after{
+    content:"";
+    position:absolute;
+    bottom:-16px; left:50%;
+    transform:translateX(-50%);
+    border-width:16px 12px 0 12px;
+    border-style:solid;
+    border-color:#fff transparent transparent transparent;
+  }
+
+  /* ---------- NAV / PROGRESS ---------- */
+  .stats{
+    max-width:900px;
+    margin:-50px auto 40px;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:0 16px;
+  }
+  .stat-pill{
+    background:#fff;
+    border-radius:999px;
+    padding:10px 22px;
+    font-weight:800;
+    font-size:15px;
+    box-shadow:0 4px 0 rgba(0,0,0,.06);
+    display:flex; align-items:center; gap:8px;
+  }
+  .stat-pill .n{ font-size:20px; }
+
+  section.unit{
+    max-width:1000px;
+    margin:0 auto 46px;
+    padding:0 20px;
+  }
+  .unit-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .unit-badge{
+    width:54px; height:54px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:20px;
+    color:#fff;
+    flex-shrink:0;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,.12);
+  }
+  .unit-header h2{
+    margin:0;
+    font-size:22px;
+  }
+  .unit-header .sub{
+    margin:2px 0 0;
+    font-size:13px;
+    font-weight:700;
+    color:#8a8a8a;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:18px;
+  }
+
+  /* ---------- CARD (FLIP) ---------- */
+  .card{
+    perspective:1200px;
+    height:210px;
+    cursor:pointer;
+  }
+  .card-inner{
+    position:relative;
+    width:100%; height:100%;
+    transition: transform .55s cubic-bezier(.68,-0.4,.27,1.4);
+    transform-style: preserve-3d;
+  }
+  .card.flipped .card-inner{ transform: rotateY(180deg); }
+  .face{
+    position:absolute; inset:0;
+    border-radius:22px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    backface-visibility:hidden;
+    box-shadow:0 6px 0 rgba(0,0,0,.08);
+  }
+  .front{ background:#fff; }
+  .back{
+    color:#fff;
+    transform: rotateY(180deg);
+    align-items:flex-start;
+    justify-content:center;
+  }
+  .lesson-tag{
+    display:inline-block;
+    font-family:'Baloo 2';
+    font-weight:700;
+    font-size:12px;
+    padding:3px 10px;
+    border-radius:999px;
+    color:#fff;
+    align-self:flex-start;
+    margin-bottom:8px;
+  }
+  .front .pattern-name{
+    font-size:14.5px;
+    font-weight:800;
+    line-height:1.3;
+    margin:0 0 10px;
+    color:#444;
+  }
+  .front .emoji-row{
+    font-size:36px;
+    text-align:center;
+    margin:2px 0 8px;
+  }
+  .front .example-en{
+    font-size:15px;
+    font-weight:800;
+    text-align:center;
+    color:var(--ink);
+  }
+  .front .tap-hint{
+    margin-top:auto;
+    text-align:center;
+    font-size:11px;
+    font-weight:700;
+    color:#b6b6b6;
+  }
+  .back .example-zh{
+    font-size:16px;
+    font-weight:800;
+    line-height:1.5;
+  }
+  .back .pattern-name-zh{
+    font-size:12px;
+    opacity:.85;
+    font-weight:700;
+    margin-top:10px;
+  }
+
+  .star-flag{
+    position:absolute;
+    top:-10px; right:-8px;
+    font-size:22px;
+    filter: drop-shadow(0 2px 1px rgba(0,0,0,.2));
+  }
+
+  /* bonus section styling */
+  .bonus-banner{
+    background:linear-gradient(90deg, var(--gold), #ffd166);
+    color:#5b3d00;
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:10px;
+    border-radius:16px;
+    max-width:1000px;
+    margin:0 auto 20px;
+  }
+  .vocab-banner{
+    background:linear-gradient(90deg, #4ecdc4, #7fe0d8);
+    color:#054d47;
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:10px;
+    border-radius:16px;
+    max-width:1000px;
+    margin:52px auto 20px;
+  }
+
+  /* ---------- VOCAB CHIPS ---------- */
+  .vocab-group{
+    margin-bottom:26px;
+  }
+  .vocab-group h3{
+    font-size:16px;
+    margin:0 0 10px;
+    display:inline-block;
+    padding:4px 14px;
+    border-radius:999px;
+    color:#fff;
+  }
+  .vocab-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .vchip{
+    background:#fff;
+    border-radius:16px;
+    padding:8px 12px;
+    text-align:center;
+    min-width:78px;
+    box-shadow:0 4px 0 rgba(0,0,0,.06);
+    border:2px solid transparent;
+  }
+  .vchip .ve{
+    font-size:24px;
+    line-height:1;
+    margin-bottom:2px;
+  }
+  .vchip .ven{
+    font-size:12.5px;
+    font-weight:800;
+    color:#444;
+  }
+  .vchip .vzh{
+    font-size:11px;
+    font-weight:700;
+    color:#999;
+  }
+
+  /* ---------- MINI SCENES (讓介詞句子更清楚) ---------- */
+  .mini-scene{
+    display:inline-block;
+    text-align:center;
+  }
+  .scene-obj{
+    font-size:26px;
+    display:block;
+  }
+  .scene-desk{
+    width:52px;
+    height:8px;
+    background:#c98a53;
+    border-radius:3px;
+    margin:2px auto 0;
+    position:relative;
+  }
+  .scene-desk:after{
+    content:"";
+    position:absolute;
+    left:50%; top:8px;
+    transform:translateX(-50%);
+    width:8px; height:14px;
+    background:#a86f3f;
+  }
+  .scene-box{
+    width:44px; height:38px;
+    background:#f4d9a3;
+    border:3px solid #c9973f;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin:0 auto;
+  }
+  .orange-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:118px;
+    font-size:13px;
+    line-height:1.1;
+    gap:1px;
+    margin:0 auto;
+  }
+
+  footer{
+    text-align:center;
+    font-size:13px;
+    color:#999;
+    font-weight:700;
+    margin-top:40px;
+  }
+
+  @media (max-width:480px){
+    .deco{ font-size:26px; }
+    .deco.bunny{ font-size:34px; }
+    .deco.fox{ font-size:32px; }
+    .hero{ padding:40px 16px 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="deco bunny">🐰</div>
+  <div class="deco fox">🦊</div>
+  <div class="deco f1">🌸</div>
+  <div class="deco f2">🌼</div>
+  <div class="deco f3">🌷</div>
+  <div class="deco f4">🌻</div>
+  <h1>Halley 的暑假句型複習樂園</h1>
+  <p>點一點卡片，複習一年級學過的英文句型吧！</p>
+  <div class="guide-bubble">嗨！我是兔子老師🐰，狐狸同學🦊也來幫忙囉～一起把學過的句型複習一遍，開學就能考100分！</div>
+</div>
+
+<div class="stats">
+  <div class="stat-pill">🏆 <span class="n">21</span> 個已學會的句型</div>
+  <div class="stat-pill">⭐ <span class="n">2</span> 個加碼挑戰句型</div>
+  <div class="stat-pill">🍭 <span class="n">85+</span> 個複習單字</div>
+</div>
+
+<!-- UNIT A -->
+<section class="unit">
+  <div class="unit-header">
+    <div class="unit-badge" style="background:var(--unitA)">🍎</div>
+    <div>
+      <h2 style="color:var(--unitA)">認識新朋友 Unit A</h2>
+      <p class="sub">Lesson 1–7・單數複數・形容詞・Yes/No</p>
+    </div>
+  </div>
+  <div class="grid" id="unitA"></div>
+</section>
+
+<!-- UNIT B -->
+<section class="unit">
+  <div class="unit-header">
+    <div class="unit-badge" style="background:var(--unitB)">❓</div>
+    <div>
+      <h2 style="color:var(--unitB)">問問題高手 Unit B</h2>
+      <p class="sub">Lesson 8–14・Who / How / Where</p>
+    </div>
+  </div>
+  <div class="grid" id="unitB"></div>
+</section>
+
+<!-- UNIT C -->
+<section class="unit">
+  <div class="unit-header">
+    <div class="unit-badge" style="background:var(--unitC)">📍</div>
+    <div>
+      <h2 style="color:var(--unitC)">東西在哪裡 Unit C</h2>
+      <p class="sub">Lesson 15–21・介詞 in / on</p>
+    </div>
+  </div>
+  <div class="grid" id="unitC"></div>
+</section>
+
+<!-- UNIT D -->
+<section class="unit">
+  <div class="unit-header">
+    <div class="unit-badge" style="background:var(--unitD)">🙋</div>
+    <div>
+      <h2 style="color:var(--unitD)">我有、我會 Unit D</h2>
+      <p class="sub">Lesson 22–28・There be / have / do</p>
+    </div>
+  </div>
+  <div class="grid" id="unitD"></div>
+</section>
+
+<!-- UNIT E -->
+<section class="unit">
+  <div class="unit-header">
+    <div class="unit-badge" style="background:var(--unitE)">🚫</div>
+    <div>
+      <h2 style="color:var(--unitE)">不、不、我不要 Unit E</h2>
+      <p class="sub">Lesson 29–32・don't / many-much / when / how</p>
+    </div>
+  </div>
+  <div class="grid" id="unitE"></div>
+</section>
+
+<div class="vocab-banner">🍭 認識新單字：把課本學過的單字也複習一次！</div>
+<section class="unit" id="vocabSection"></section>
+
+<div class="bonus-banner">⭐ 加碼挑戰：老師特別標記的補充句型，複習更完整！ ⭐</div>
+<section class="unit">
+  <div class="grid" id="bonus"></div>
+</section>
+
+<footer>祝 Halley 暑假快樂，開學英文更進步！🌞📖</footer>
+
+<script>
+const UNIT_COLORS = {
+  A: {c:'#e8604c'}, B:{c:'#4f9d69'}, C:{c:'#ea6f9b'}, D:{c:'#8c6fc7'}, E:{c:'#3f8ecf'}, S:{c:'#ffb703'}
+};
+
+const data = {
+  A: [
+    {l:1, name:'單數代詞及 a/an 的用法', en:"It's a pencil. It's red.", zh:'這是一枝鉛筆，它是紅色的。', emoji:'🖍️'},
+    {l:2, name:'複數代詞及複數名詞的用法', en:"They're apples.", zh:'牠們是蘋果。', emoji:'🍎🍎🍎'},
+    {l:3, name:'形容詞的用法', en:"Look! I'm big.", zh:'你看！我好大。', emoji:'<span style="font-size:1.35em">🐘</span><span style="font-size:0.55em;vertical-align:top;">🐭</span>'},
+    {l:4, name:'一般疑問句的用法', en:'Do you like soccer?', zh:'你喜歡足球嗎？', emoji:'⚽'},
+    {l:5, name:'Yes 的用法', en:'Yes, I do.', zh:'對，我喜歡。', emoji:'👍'},
+    {l:6, name:'No 的用法', en:"No, I don't. I like baseball.", zh:'不，我不喜歡。我喜歡棒球。', emoji:'⚾🙅'},
+    {l:7, name:'人稱代詞的所有格用法', en:"Where's my book? It's on the desk.", zh:'我的書呢？在書桌上。', emoji:'<div class="mini-scene"><span class="scene-obj">📖</span><div class="scene-desk"></div></div>'},
+  ],
+  B: [
+    {l:8, name:'What 疑問句與專有名詞的用法', en:"What's this? It's a pencil.", zh:'這是什麼？是一枝鉛筆。', emoji:'✏️'},
+    {l:12, name:'Who 疑問句的用法', en:"Who's he? He's my brother.", zh:'他是誰？他是我哥哥。', emoji:'👦'},
+    {l:13, name:'How 疑問句與 fine 的用法', en:"How are you? I'm fine, thanks.", zh:'你好嗎？我很好，謝謝。', emoji:'😊'},
+    {l:14, name:'Where 疑問句的用法', en:'Where are my socks?', zh:'我的襪子呢？', emoji:'🧦🔍'},
+  ],
+  C: [
+    {l:15, name:'介詞 in 與地點搭配的用法', en:'My pencils are in the box.', zh:'我的鉛筆在盒子裡。', emoji:'<div class="mini-scene"><div class="scene-box">✏️</div></div>'},
+    {l:16, name:'介詞 on 與地點搭配的用法', en:"The lamp is on the desk.", zh:'檯燈在書桌上。', emoji:'<div class="mini-scene"><span class="scene-obj">💡</span><div class="scene-desk"></div></div>'},
+  ],
+  D: [
+    {l:24, name:'There be 的用法與數字的寫法', en:'There are fifteen oranges.', zh:'有十五顆橘子。', emoji:'<div class="orange-grid">' + '🍊'.repeat(15) + '</div>'},
+    {l:25, name:'動詞 have 的用法與三大人稱', en:'Do you have plates?', zh:'你有盤子嗎？', emoji:'🍽️'},
+    {l:27, name:'助動詞 do 和 does 的用法', en:"Does she have napkins? No, she doesn't.", zh:'她有餐巾紙嗎？不，她沒有。', emoji:'🧻❌'},
+    {l:28, name:'肯定回答的表達', en:'Do you have cups? Yes, we do.', zh:'你們有杯子嗎？有的。', emoji:'🥤🥤'},
+  ],
+  E: [
+    {l:29, name:'否定句 don\'t / doesn\'t 的用法', en:"I don't like ants.", zh:'我不喜歡螞蟻。', emoji:'🐜🙅'},
+    {l:30, name:'形容詞 many / much 的用法', en:'There are many peaches.', zh:'有很多桃子。', emoji:'🍑🍑🍑'},
+    {l:31, name:'疑問詞及連詞 When 的用法', en:'When is your birthday?', zh:'你的生日是什麼時候？', emoji:'🎂'},
+    {l:32, name:'疑問詞 How 的其他用法', en:"What time is it? It's ten o'clock.", zh:'現在幾點？十點鐘。', emoji:'⏰10'},
+  ],
+  S: [
+    {l:19, name:'單、複數名詞的所有格用法（補充）', en:'This is Tom\'s ball.', zh:'這是湯姆的球。', emoji:'⚽'},
+    {l:21, name:'定冠詞 the 的用法及無生命的所有格（補充）', en:'The door of the room is red.', zh:'房間的門是紅色的。', emoji:'🚪❤️'},
+  ]
+};
+
+function makeCard(item, colorHex, isStar){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-inner">
+      <div class="face front">
+        ${isStar ? '<div class="star-flag">⭐</div>' : ''}
+        <span class="lesson-tag" style="background:${colorHex}">Lesson ${item.l}</span>
+        <p class="pattern-name">${item.name}</p>
+        <div class="emoji-row">${item.emoji}</div>
+        <div class="example-en">"${item.en}"</div>
+        <div class="tap-hint">👆 點我看中文</div>
+      </div>
+      <div class="face back" style="background:${colorHex}">
+        <div class="example-zh">${item.zh}</div>
+        <div class="pattern-name-zh">${item.name}</div>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+  return card;
+}
+
+['A','B','C','D','E'].forEach(u => {
+  const container = document.getElementById('unit' + u);
+  data[u].forEach(item => container.appendChild(makeCard(item, UNIT_COLORS[u].c, false)));
+});
+
+const bonusContainer = document.getElementById('bonus');
+data.S.forEach(item => bonusContainer.appendChild(makeCard(item, UNIT_COLORS.S.c, true)));
+
+/* ---------- 單字複習 ---------- */
+const vocab = [
+  {title:'情緒與大小 Feelings & Size', color:UNIT_COLORS.A.c, words:[
+    {en:'happy', zh:'開心', e:'😊'}, {en:'sad', zh:'難過', e:'😢'},
+    {en:'big', zh:'大的', e:'🐘'}, {en:'small', zh:'小的', e:'🐭'},
+    {en:'heavy', zh:'重的', e:'🏋️'}, {en:'light', zh:'輕的', e:'🪶'},
+    {en:'hot', zh:'熱的', e:'🥵'}, {en:'cold', zh:'冷的', e:'🥶'},
+  ]},
+  {title:'球類運動 Sports', color:UNIT_COLORS.B.c, words:[
+    {en:'soccer', zh:'足球', e:'⚽'}, {en:'baseball', zh:'棒球', e:'⚾'},
+    {en:'badminton', zh:'羽毛球', e:'🏸'}, {en:'tennis', zh:'網球', e:'🎾'},
+    {en:'basketball', zh:'籃球', e:'🏀'}, {en:'dodge ball', zh:'躲避球', e:'🤾'},
+    {en:'volleyball', zh:'排球', e:'🏐'}, {en:'ping-pong', zh:'桌球', e:'🏓'},
+  ]},
+  {title:'房間與顏色 Bedroom & Colors', color:UNIT_COLORS.C.c, words:[
+    {en:'bed', zh:'床', e:'🛏️'}, {en:'pillow', zh:'枕頭', e:'🛌'},
+    {en:'window', zh:'窗戶', e:'🪟'}, {en:'clock', zh:'時鐘', e:'🕐'},
+    {en:'mirror', zh:'鏡子', e:'🪞'}, {en:'blanket', zh:'毯子', e:'🧣'},
+    {en:'door', zh:'門', e:'🚪'}, {en:'lamp', zh:'檯燈', e:'💡'},
+    {en:'pink', zh:'粉紅色', e:'🩷'}, {en:'gray', zh:'灰色', e:'⬜'},
+    {en:'black', zh:'黑色', e:'⬛'}, {en:'white', zh:'白色', e:'🤍'},
+    {en:'brown', zh:'棕色', e:'🟤'},
+  ]},
+  {title:'水果 Fruits', color:UNIT_COLORS.D.c, words:[
+    {en:'strawberries', zh:'草莓', e:'🍓'}, {en:'pears', zh:'梨子', e:'🍐'},
+    {en:'peaches', zh:'桃子', e:'🍑'}, {en:'grapes', zh:'葡萄', e:'🍇'},
+    {en:'cherries', zh:'櫻桃', e:'🍒'}, {en:'oranges', zh:'橘子', e:'🍊'},
+    {en:'mangoes', zh:'芒果', e:'🥭'}, {en:'pineapples', zh:'鳳梨', e:'🍍'},
+  ]},
+  {title:'位置介詞與衣物 Prepositions & Clothes', color:UNIT_COLORS.E.c, words:[
+    {en:'in', zh:'在～裡面', e:'📦'}, {en:'on', zh:'在～上面', e:'🔼'},
+    {en:'under', zh:'在～下面', e:'⬇️'}, {en:'between', zh:'在～中間', e:'↔️'},
+    {en:'socks', zh:'襪子', e:'🧦'}, {en:'skirt', zh:'裙子', e:'👗'},
+    {en:'pants', zh:'長褲', e:'👖'}, {en:'jacket', zh:'外套', e:'🧥'},
+  ]},
+  {title:'時間 Time', color:UNIT_COLORS.A.c, words:[
+    {en:'one o\'clock', zh:'一點鐘', e:'🕐'}, {en:'two o\'clock', zh:'兩點鐘', e:'🕑'},
+    {en:'three o\'clock', zh:'三點鐘', e:'🕒'}, {en:'four o\'clock', zh:'四點鐘', e:'🕓'},
+    {en:'five o\'clock', zh:'五點鐘', e:'🕔'}, {en:'six o\'clock', zh:'六點鐘', e:'🕕'},
+    {en:'seven o\'clock', zh:'七點鐘', e:'🕖'}, {en:'eight o\'clock', zh:'八點鐘', e:'🕗'},
+    {en:'nine o\'clock', zh:'九點鐘', e:'🕘'}, {en:'ten o\'clock', zh:'十點鐘', e:'🕙'},
+    {en:'eleven o\'clock', zh:'十一點鐘', e:'🕚'}, {en:'twelve o\'clock', zh:'十二點鐘', e:'🕛'},
+  ]},
+  {title:'數字 13–20 Numbers', color:UNIT_COLORS.B.c, words:[
+    {en:'thirteen', zh:'13', e:'1️⃣3️⃣'}, {en:'fourteen', zh:'14', e:'1️⃣4️⃣'},
+    {en:'fifteen', zh:'15', e:'1️⃣5️⃣'}, {en:'sixteen', zh:'16', e:'1️⃣6️⃣'},
+    {en:'seventeen', zh:'17', e:'1️⃣7️⃣'}, {en:'eighteen', zh:'18', e:'1️⃣8️⃣'},
+    {en:'nineteen', zh:'19', e:'1️⃣9️⃣'}, {en:'twenty', zh:'20', e:'2️⃣0️⃣'},
+  ]},
+  {title:'餐具 Tableware', color:UNIT_COLORS.C.c, words:[
+    {en:'forks', zh:'叉子', e:'🍴'}, {en:'spoons', zh:'湯匙', e:'🥄'},
+    {en:'knives', zh:'刀子', e:'🔪'}, {en:'chopsticks', zh:'筷子', e:'🥢'},
+    {en:'napkins', zh:'餐巾紙', e:'🧻'}, {en:'glasses', zh:'玻璃杯', e:'🥃'},
+    {en:'tissues', zh:'面紙', e:'🧻'}, {en:'bowls', zh:'碗', e:'🥣'},
+  ]},
+  {title:'食物與文具 Food & School Things', color:UNIT_COLORS.D.c, words:[
+    {en:'notebook', zh:'筆記本', e:'📓'}, {en:'pencil case', zh:'鉛筆盒', e:'🖊️'},
+    {en:'butterfly', zh:'蝴蝶', e:'🦋'}, {en:'snake', zh:'蛇', e:'🐍'},
+    {en:'soup', zh:'湯', e:'🍲'}, {en:'steak', zh:'牛排', e:'🥩'},
+    {en:'cake', zh:'蛋糕', e:'🍰'}, {en:'cheese', zh:'起司', e:'🧀'},
+    {en:'ice cream', zh:'冰淇淋', e:'🍨'}, {en:'bread', zh:'麵包', e:'🍞'},
+    {en:'salad', zh:'沙拉', e:'🥗'}, {en:'soda', zh:'汽水', e:'🥤'},
+  ]},
+];
+
+const vocabSection = document.getElementById('vocabSection');
+vocab.forEach(group => {
+  const gDiv = document.createElement('div');
+  gDiv.className = 'vocab-group';
+  const row = group.words.map(w => `
+    <div class="vchip">
+      <div class="ve">${w.e}</div>
+      <div class="ven">${w.en}</div>
+      <div class="vzh">${w.zh}</div>
+    </div>
+  `).join('');
+  gDiv.innerHTML = `<h3 style="background:${group.color}">${group.title}</h3><div class="vocab-row">${row}</div>`;
+  vocabSection.appendChild(gDiv);
+});
+</script>
+
+</body>
+</html>
