@@ -20,27 +20,25 @@
     --unitD-bg:#f1ecfb;
     --unitE:#3f8ecf;   /* 藍 Lesson 29-35 */
     --unitE-bg:#e9f3fb;
+    --unitF:#ef476f;   /* 桃紅 第一冊 Gogo 1 */
+    --unitF-bg:#fdecf1;
+    --unitG:#e8890c;   /* 橘色 第二冊 Gogo 2 */
+    --unitG-bg:#fdf1e0;
+    --unitH:#17a398;   /* 青綠 綜合複習 */
+    --unitH-bg:#e3f7f4;
     --gold:#ffb703;
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
     background:
-      radial-gradient(circle 7px at 6% 8%, #ffd166 96%, transparent 100%),
-      radial-gradient(circle 5px at 18% 22%, #4ecdc4 96%, transparent 100%),
-      radial-gradient(circle 8px at 32% 6%, #ff6b8b 96%, transparent 100%),
-      radial-gradient(circle 6px at 47% 18%, #9b72cf 96%, transparent 100%),
-      radial-gradient(circle 5px at 62% 5%, #6fcf97 96%, transparent 100%),
-      radial-gradient(circle 7px at 78% 15%, #ffd166 96%, transparent 100%),
-      radial-gradient(circle 6px at 92% 8%, #ff6b8b 96%, transparent 100%),
-      radial-gradient(circle 6px at 10% 90%, #9b72cf 96%, transparent 100%),
-      radial-gradient(circle 8px at 25% 96%, #6fcf97 96%, transparent 100%),
-      radial-gradient(circle 5px at 40% 88%, #ffd166 96%, transparent 100%),
-      radial-gradient(circle 7px at 55% 97%, #4ecdc4 96%, transparent 100%),
-      radial-gradient(circle 6px at 70% 90%, #ff6b8b 96%, transparent 100%),
-      radial-gradient(circle 5px at 85% 95%, #9b72cf 96%, transparent 100%),
-      radial-gradient(circle 6px at 97% 88%, #6fcf97 96%, transparent 100%),
-      #ffffff;
+      repeating-linear-gradient(25deg, rgba(239,71,111,0.35) 0 9px, transparent 9px 150px),
+      repeating-linear-gradient(-15deg, rgba(255,209,102,0.32) 0 9px, transparent 9px 165px),
+      repeating-linear-gradient(65deg, rgba(78,205,196,0.3) 0 9px, transparent 9px 155px),
+      repeating-linear-gradient(-60deg, rgba(155,114,207,0.32) 0 9px, transparent 9px 175px),
+      repeating-linear-gradient(10deg, rgba(111,207,151,0.3) 0 9px, transparent 9px 160px),
+      #0a0a0d;
+    background-attachment:fixed;
     font-family:'Nunito', sans-serif;
     color:var(--ink);
     padding-bottom:80px;
@@ -65,7 +63,7 @@
   .hero p{
     font-size:18px;
     font-weight:700;
-    color:#5c5c5c;
+    color:#f0f0f0;
     margin:0;
   }
   .deco{
@@ -156,7 +154,7 @@
     margin:2px 0 0;
     font-size:13px;
     font-weight:700;
-    color:#8a8a8a;
+    color:#cfcfcf;
   }
 
   .grid{
@@ -167,8 +165,9 @@
 
   /* ---------- CARD (FLIP) ---------- */
   .card{
+    position:relative;
     perspective:1200px;
-    height:210px;
+    height:250px;
     cursor:pointer;
   }
   .card-inner{
@@ -198,27 +197,27 @@
     display:inline-block;
     font-family:'Baloo 2';
     font-weight:700;
-    font-size:12px;
-    padding:3px 10px;
+    font-size:13px;
+    padding:4px 11px;
     border-radius:999px;
     color:#fff;
     align-self:flex-start;
     margin-bottom:8px;
   }
   .front .pattern-name{
-    font-size:14.5px;
+    font-size:16.5px;
     font-weight:800;
     line-height:1.3;
     margin:0 0 10px;
     color:#444;
   }
   .front .emoji-row{
-    font-size:36px;
+    font-size:40px;
     text-align:center;
     margin:2px 0 8px;
   }
   .front .example-en{
-    font-size:15px;
+    font-size:17.5px;
     font-weight:800;
     text-align:center;
     color:var(--ink);
@@ -226,20 +225,45 @@
   .front .tap-hint{
     margin-top:auto;
     text-align:center;
-    font-size:11px;
+    font-size:12.5px;
     font-weight:700;
     color:#b6b6b6;
   }
   .back .example-zh{
-    font-size:16px;
+    font-size:19px;
     font-weight:800;
     line-height:1.5;
   }
   .back .pattern-name-zh{
-    font-size:12px;
+    font-size:13.5px;
     opacity:.85;
     font-weight:700;
     margin-top:10px;
+  }
+  .back .structure-tag{
+    display:inline-block;
+    margin-top:10px;
+    padding:5px 11px;
+    background:rgba(255,255,255,.25);
+    border-radius:10px;
+    font-size:13px;
+    font-weight:800;
+    line-height:1.4;
+  }
+
+  /* ---------- SPARKLE BURST ---------- */
+  .sparkle{
+    position:absolute;
+    left:50%; top:50%;
+    font-size:20px;
+    pointer-events:none;
+    z-index:20;
+    animation: sparklePop 750ms ease-out forwards;
+  }
+  @keyframes sparklePop{
+    0%{ transform:translate(-50%,-50%) scale(0) rotate(0deg); opacity:1; }
+    55%{ opacity:1; }
+    100%{ transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.3) rotate(90deg); opacity:0; }
   }
 
   .star-flag{
@@ -274,6 +298,90 @@
     max-width:1000px;
     margin:52px auto 20px;
   }
+  .book2-banner{
+    background:linear-gradient(90deg, #ef476f, #ff8fa3);
+    color:#5b0021;
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:16px;
+    padding:12px;
+    border-radius:16px;
+    max-width:1000px;
+    margin:56px auto 20px;
+  }
+  .part-banner{
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:19px;
+    padding:16px;
+    border-radius:18px;
+    max-width:1000px;
+    margin:64px auto 22px;
+    color:#fff;
+  }
+  .part-banner .sub-line{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-top:4px;
+    opacity:.9;
+  }
+  .mini-banner{
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:14.5px;
+    padding:9px;
+    border-radius:14px;
+    max-width:1000px;
+    margin:40px auto 16px;
+    color:#fff;
+    opacity:.92;
+  }
+
+  /* ---------- PART 3 統整清單 ---------- */
+  .summary-list{
+    max-width:720px;
+    margin:0 auto;
+    background:#fff;
+    border-radius:22px;
+    padding:8px 24px;
+    box-shadow:0 6px 0 rgba(0,0,0,.06);
+  }
+  .summary-group-title{
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:14px 0 8px;
+  }
+  .summary-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:10px 0;
+    border-bottom:1px solid #f2f2f2;
+  }
+  .summary-row:last-child{ border-bottom:none; }
+  .summary-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-top:6px;
+    flex-shrink:0;
+  }
+  .summary-text .s-en{
+    font-weight:800;
+    font-size:14.5px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .summary-text .s-zh{
+    font-size:12.5px;
+    color:#999;
+    margin-top:2px;
+  }
 
   /* ---------- VOCAB CHIPS ---------- */
   .vocab-group{
@@ -292,35 +400,59 @@
     flex-wrap:wrap;
     gap:10px;
   }
-  .vchip{
-    background:#fff;
-    border-radius:16px;
-    padding:8px 12px;
+  .vcard{
+    position:relative;
+    perspective:900px;
+    width:84px;
+    height:96px;
+    cursor:pointer;
+  }
+  .vcard-inner{
+    position:relative;
+    width:100%; height:100%;
+    transition: transform .5s cubic-bezier(.68,-0.4,.27,1.4);
+    transform-style: preserve-3d;
+  }
+  .vcard.flipped .vcard-inner{ transform: rotateY(180deg); }
+  .vface{
+    position:absolute; inset:0;
+    border-radius:14px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    backface-visibility:hidden;
+    box-shadow:0 3px 0 rgba(0,0,0,.08);
+    padding:6px;
     text-align:center;
-    min-width:78px;
-    box-shadow:0 4px 0 rgba(0,0,0,.06);
-    border:2px solid transparent;
   }
-  .vchip .ve{
-    font-size:24px;
+  .vfront{ background:#fff; }
+  .vback{
+    color:#fff;
+    transform: rotateY(180deg);
+  }
+  .vfront .ve{
+    font-size:27px;
     line-height:1;
-    margin-bottom:2px;
+    margin-bottom:4px;
   }
-  .vchip .ven{
-    font-size:12.5px;
+  .vfront .ven{
+    font-size:13px;
     font-weight:800;
     color:#444;
+    line-height:1.2;
   }
-  .vchip .vzh{
-    font-size:11px;
-    font-weight:700;
-    color:#999;
+  .vback .vzh-big{
+    font-size:15.5px;
+    font-weight:800;
+    line-height:1.3;
   }
 
   /* ---------- MINI SCENES (讓介詞句子更清楚) ---------- */
   .mini-scene{
     display:inline-block;
     text-align:center;
+    margin-bottom:6px;
   }
   .scene-obj{
     font-size:26px;
@@ -331,7 +463,7 @@
     height:8px;
     background:#c98a53;
     border-radius:3px;
-    margin:2px auto 0;
+    margin:2px auto 18px;
     position:relative;
   }
   .scene-desk:after{
@@ -367,7 +499,7 @@
   footer{
     text-align:center;
     font-size:13px;
-    color:#999;
+    color:#d5d5d5;
     font-weight:700;
     margin-top:40px;
   }
@@ -378,6 +510,136 @@
     .deco.fox{ font-size:32px; }
     .hero{ padding:40px 16px 70px; }
   }
+  /* ---------- QUIZ ---------- */
+  .quiz-banner{
+    background:linear-gradient(90deg, #9b72cf, #c3a6ec);
+    color:#3a1a5c;
+    text-align:center;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:16px;
+    padding:12px;
+    border-radius:16px;
+    max-width:1000px;
+    margin:56px auto 20px;
+  }
+  .quiz-tabs{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .quiz-tab{
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:10px 22px;
+    border-radius:999px;
+    border:none;
+    background:#fff;
+    color:#888;
+    cursor:pointer;
+    box-shadow:0 4px 0 rgba(0,0,0,.06);
+  }
+  .quiz-tab.active{
+    background:#9b72cf;
+    color:#fff;
+  }
+  .quiz-box{
+    max-width:560px;
+    margin:0 auto;
+    background:#fff;
+    border-radius:24px;
+    padding:26px 24px;
+    box-shadow:0 8px 0 rgba(0,0,0,.06);
+  }
+  .quiz-progress{
+    font-size:13px;
+    font-weight:800;
+    color:#999;
+    margin-bottom:10px;
+  }
+  .quiz-question{
+    font-size:19px;
+    font-weight:800;
+    color:var(--ink);
+    line-height:1.5;
+    margin-bottom:18px;
+  }
+  .quiz-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .quiz-opt{
+    font-family:'Nunito';
+    font-size:15.5px;
+    font-weight:700;
+    text-align:left;
+    padding:12px 16px;
+    border-radius:14px;
+    border:2px solid #eee;
+    background:#fafafa;
+    color:#444;
+    cursor:pointer;
+  }
+  .quiz-opt:hover{ background:#f0f0f0; }
+  .quiz-opt.correct{
+    background:#d8f5df;
+    border-color:#6fcf97;
+    color:#1d7a3f;
+  }
+  .quiz-opt.wrong{
+    background:#fde0e0;
+    border-color:#ef476f;
+    color:#a3132f;
+  }
+  .quiz-feedback{
+    margin-top:14px;
+    font-size:15px;
+    font-weight:800;
+  }
+  .quiz-feedback.good{ color:#1d7a3f; }
+  .quiz-feedback.bad{ color:#a3132f; }
+  .quiz-next-btn{
+    display:block;
+    margin:18px auto 0;
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:10px 24px;
+    border-radius:999px;
+    border:none;
+    background:#9b72cf;
+    color:#fff;
+    cursor:pointer;
+  }
+  .quiz-done{
+    text-align:center;
+    padding:20px 0;
+  }
+  .quiz-done-emoji{
+    font-size:50px;
+    margin-bottom:10px;
+  }
+  .quiz-done-score{
+    font-size:19px;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:18px;
+  }
+  .quiz-restart-btn{
+    font-family:'Baloo 2';
+    font-weight:800;
+    font-size:15px;
+    padding:10px 24px;
+    border-radius:999px;
+    border:none;
+    background:#9b72cf;
+    color:#fff;
+    cursor:pointer;
+  }
+
 </style>
 </head>
 <body>
@@ -390,82 +652,81 @@
   <div class="deco f3">🌷</div>
   <div class="deco f4">🌻</div>
   <h1>Halley 的暑假句型複習樂園</h1>
-  <p>點一點卡片，複習一年級學過的英文句型吧！</p>
-  <div class="guide-bubble">嗨！我是兔子老師🐰，狐狸同學🦊也來幫忙囉～一起把學過的句型複習一遍，開學就能考100分！</div>
+  <p>桃紅＝第一冊・橘色＝第二冊・青綠＝綜合複習，點一點卡片開始複習吧！</p>
+  <div class="guide-bubble">嗨！我是兔子老師🐰，狐狸同學🦊也來幫忙囉～一起把 Gogo Loves English 學過的內容複習一遍！</div>
 </div>
 
 <div class="stats">
-  <div class="stat-pill">🏆 <span class="n">21</span> 個已學會的句型</div>
-  <div class="stat-pill">⭐ <span class="n">2</span> 個加碼挑戰句型</div>
-  <div class="stat-pill">🍭 <span class="n">85+</span> 個複習單字</div>
+  <div class="stat-pill">📕 <span class="n">12</span> 個第一冊句型</div>
+  <div class="stat-pill">📗 <span class="n">28</span> 個第二冊句型</div>
+  <div class="stat-pill">🌈 <span class="n">40</span> 句統整清單</div>
+  <div class="stat-pill">🍭 <span class="n">280+</span> 個單字（含字母發音）</div>
 </div>
 
-<!-- UNIT A -->
+<!-- ================= PART 1: Gogo Loves English 第一冊 ================= -->
+<div class="part-banner" style="background:linear-gradient(90deg, var(--unitF), #ff8fa3);">
+  📕 第一部分：Gogo Loves English 第一冊
+  <span class="sub-line">打招呼・能力・家人・動物・顏色・年齡・字母自然發音</span>
+</div>
+
 <section class="unit">
   <div class="unit-header">
-    <div class="unit-badge" style="background:var(--unitA)">🍎</div>
+    <div class="unit-badge" style="background:var(--unitF)">👋</div>
     <div>
-      <h2 style="color:var(--unitA)">認識新朋友 Unit A</h2>
-      <p class="sub">Lesson 1–7・單數複數・形容詞・Yes/No</p>
+      <h2 style="color:var(--unitF)">句型</h2>
+      <p class="sub">Hello! / Can you...? / Who's she? / Is this a...? / What color...? / How old...?</p>
     </div>
   </div>
-  <div class="grid" id="unitA"></div>
+  <div class="grid" id="unitF"></div>
 </section>
 
-<!-- UNIT B -->
+<div class="mini-banner" style="background:var(--unitF);">🍭 第一冊單字</div>
+<section class="unit" id="vocabSection2"></section>
+
+<div class="mini-banner" style="background:var(--unitF);">🔤 字母自然發音 A–Z</div>
+<section class="unit" id="alphabetSection"></section>
+
+<!-- ================= PART 2: Gogo Loves English 第二冊 ================= -->
+<div class="part-banner" style="background:linear-gradient(90deg, var(--unitG), #ffbe5c);">
+  📗 第二部分：Gogo Loves English 第二冊
+  <span class="sub-line">大小情緒・球類運動・水果・介詞衣物・時間數字・餐具・喜好・Sounds and Words</span>
+</div>
+
 <section class="unit">
   <div class="unit-header">
-    <div class="unit-badge" style="background:var(--unitB)">❓</div>
+    <div class="unit-badge" style="background:var(--unitG)">📗</div>
     <div>
-      <h2 style="color:var(--unitB)">問問題高手 Unit B</h2>
-      <p class="sub">Lesson 8–14・Who / How / Where</p>
+      <h2 style="color:var(--unitG)">句型</h2>
+      <p class="sub">Can you draw? / They're big. / What's that? / Where's my book? / How many...?</p>
     </div>
   </div>
-  <div class="grid" id="unitB"></div>
+  <div class="grid" id="unitG"></div>
 </section>
 
-<!-- UNIT C -->
+<div class="mini-banner" style="background:var(--unitG);">🍭 第二冊單字</div>
+<section class="unit" id="vocabSectionG"></section>
+
+<div class="mini-banner" style="background:var(--unitG);">🔤 Sounds and Words 自然發音</div>
+<section class="unit" id="phonicsSection"></section>
+
+<!-- ================= PART 3: 統整複習 ================= -->
+<div class="part-banner" style="background:linear-gradient(90deg, var(--unitH), #6fe3d6);">
+  🌈 第三部分：統整複習清單
+  <span class="sub-line">把第一冊和第二冊學過的句型，統整成一份清單方便快速複習</span>
+</div>
+
 <section class="unit">
-  <div class="unit-header">
-    <div class="unit-badge" style="background:var(--unitC)">📍</div>
-    <div>
-      <h2 style="color:var(--unitC)">東西在哪裡 Unit C</h2>
-      <p class="sub">Lesson 15–21・介詞 in / on</p>
-    </div>
+  <div class="summary-list" id="summaryList"></div>
+</section>
+
+<div class="quiz-banner">📝 小測驗時間：句型 30 題 ＋ 單字 30 題，挑戰看看！</div>
+<section class="unit">
+  <div class="quiz-tabs">
+    <button class="quiz-tab active" data-quiz="pattern">✏️ 句型測驗</button>
+    <button class="quiz-tab" data-quiz="vocab">🍭 單字測驗</button>
   </div>
-  <div class="grid" id="unitC"></div>
-</section>
-
-<!-- UNIT D -->
-<section class="unit">
-  <div class="unit-header">
-    <div class="unit-badge" style="background:var(--unitD)">🙋</div>
-    <div>
-      <h2 style="color:var(--unitD)">我有、我會 Unit D</h2>
-      <p class="sub">Lesson 22–28・There be / have / do</p>
-    </div>
-  </div>
-  <div class="grid" id="unitD"></div>
-</section>
-
-<!-- UNIT E -->
-<section class="unit">
-  <div class="unit-header">
-    <div class="unit-badge" style="background:var(--unitE)">🚫</div>
-    <div>
-      <h2 style="color:var(--unitE)">不、不、我不要 Unit E</h2>
-      <p class="sub">Lesson 29–32・don't / many-much / when / how</p>
-    </div>
-  </div>
-  <div class="grid" id="unitE"></div>
-</section>
-
-<div class="vocab-banner">🍭 認識新單字：把課本學過的單字也複習一次！</div>
-<section class="unit" id="vocabSection"></section>
-
-<div class="bonus-banner">⭐ 加碼挑戰：老師特別標記的補充句型，複習更完整！ ⭐</div>
-<section class="unit">
-  <div class="grid" id="bonus"></div>
+  <div id="quizPatternBox" class="quiz-box"></div>
+  <div id="quizVocabBox" class="quiz-box" style="display:none;"></div>
 </section>
 
 <footer>祝 Halley 暑假快樂，開學英文更進步！🌞📖</footer>
@@ -475,43 +736,43 @@ const UNIT_COLORS = {
   A: {c:'#e8604c'}, B:{c:'#4f9d69'}, C:{c:'#ea6f9b'}, D:{c:'#8c6fc7'}, E:{c:'#3f8ecf'}, S:{c:'#ffb703'}
 };
 
-const data = {
-  A: [
-    {l:1, name:'單數代詞及 a/an 的用法', en:"It's a pencil. It's red.", zh:'這是一枝鉛筆，它是紅色的。', emoji:'🖍️'},
-    {l:2, name:'複數代詞及複數名詞的用法', en:"They're apples.", zh:'牠們是蘋果。', emoji:'🍎🍎🍎'},
-    {l:3, name:'形容詞的用法', en:"Look! I'm big.", zh:'你看！我好大。', emoji:'<span style="font-size:1.35em">🐘</span><span style="font-size:0.55em;vertical-align:top;">🐭</span>'},
-    {l:4, name:'一般疑問句的用法', en:'Do you like soccer?', zh:'你喜歡足球嗎？', emoji:'⚽'},
-    {l:5, name:'Yes 的用法', en:'Yes, I do.', zh:'對，我喜歡。', emoji:'👍'},
-    {l:6, name:'No 的用法', en:"No, I don't. I like baseball.", zh:'不，我不喜歡。我喜歡棒球。', emoji:'⚾🙅'},
-    {l:7, name:'人稱代詞的所有格用法', en:"Where's my book? It's on the desk.", zh:'我的書呢？在書桌上。', emoji:'<div class="mini-scene"><span class="scene-obj">📖</span><div class="scene-desk"></div></div>'},
-  ],
-  B: [
-    {l:8, name:'What 疑問句與專有名詞的用法', en:"What's this? It's a pencil.", zh:'這是什麼？是一枝鉛筆。', emoji:'✏️'},
-    {l:12, name:'Who 疑問句的用法', en:"Who's he? He's my brother.", zh:'他是誰？他是我哥哥。', emoji:'👦'},
-    {l:13, name:'How 疑問句與 fine 的用法', en:"How are you? I'm fine, thanks.", zh:'你好嗎？我很好，謝謝。', emoji:'😊'},
-    {l:14, name:'Where 疑問句的用法', en:'Where are my socks?', zh:'我的襪子呢？', emoji:'🧦🔍'},
-  ],
-  C: [
-    {l:15, name:'介詞 in 與地點搭配的用法', en:'My pencils are in the box.', zh:'我的鉛筆在盒子裡。', emoji:'<div class="mini-scene"><div class="scene-box">✏️</div></div>'},
-    {l:16, name:'介詞 on 與地點搭配的用法', en:"The lamp is on the desk.", zh:'檯燈在書桌上。', emoji:'<div class="mini-scene"><span class="scene-obj">💡</span><div class="scene-desk"></div></div>'},
-  ],
-  D: [
-    {l:24, name:'There be 的用法與數字的寫法', en:'There are fifteen oranges.', zh:'有十五顆橘子。', emoji:'<div class="orange-grid">' + '🍊'.repeat(15) + '</div>'},
-    {l:25, name:'動詞 have 的用法與三大人稱', en:'Do you have plates?', zh:'你有盤子嗎？', emoji:'🍽️'},
-    {l:27, name:'助動詞 do 和 does 的用法', en:"Does she have napkins? No, she doesn't.", zh:'她有餐巾紙嗎？不，她沒有。', emoji:'🧻❌'},
-    {l:28, name:'肯定回答的表達', en:'Do you have cups? Yes, we do.', zh:'你們有杯子嗎？有的。', emoji:'🥤🥤'},
-  ],
-  E: [
-    {l:29, name:'否定句 don\'t / doesn\'t 的用法', en:"I don't like ants.", zh:'我不喜歡螞蟻。', emoji:'🐜🙅'},
-    {l:30, name:'形容詞 many / much 的用法', en:'There are many peaches.', zh:'有很多桃子。', emoji:'🍑🍑🍑'},
-    {l:31, name:'疑問詞及連詞 When 的用法', en:'When is your birthday?', zh:'你的生日是什麼時候？', emoji:'🎂'},
-    {l:32, name:'疑問詞 How 的其他用法', en:"What time is it? It's ten o'clock.", zh:'現在幾點？十點鐘。', emoji:'⏰10'},
-  ],
-  S: [
-    {l:19, name:'單、複數名詞的所有格用法（補充）', en:'This is Tom\'s ball.', zh:'這是湯姆的球。', emoji:'⚽'},
-    {l:21, name:'定冠詞 the 的用法及無生命的所有格（補充）', en:'The door of the room is red.', zh:'房間的門是紅色的。', emoji:'🚪❤️'},
-  ]
-};
+function sparkleBurst(cardEl){
+  const glyphs = ['✨','⭐','🌟','💫'];
+  const count = 7;
+  for(let i=0;i<count;i++){
+    const s = document.createElement('span');
+    s.className = 'sparkle';
+    s.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+    const angle = (Math.PI * 2 * i) / count + (Math.random()*0.5 - 0.25);
+    const dist = 55 + Math.random()*35;
+    s.style.setProperty('--dx', Math.cos(angle)*dist + 'px');
+    s.style.setProperty('--dy', Math.sin(angle)*dist + 'px');
+    s.style.animationDelay = (Math.random()*90) + 'ms';
+    cardEl.appendChild(s);
+    setTimeout(() => s.remove(), 950);
+  }
+}
+
+function makeVocabCard(w, colorHex){
+  const card = document.createElement('div');
+  card.className = 'vcard';
+  card.innerHTML = `
+    <div class="vcard-inner">
+      <div class="vface vfront">
+        <div class="ve">${w.e}</div>
+        <div class="ven">${w.en}</div>
+      </div>
+      <div class="vface vback" style="background:${colorHex}">
+        <div class="vzh-big">${w.zh}</div>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+    sparkleBurst(card);
+  });
+  return card;
+}
 
 function makeCard(item, colorHex, isStar){
   const card = document.createElement('div');
@@ -529,20 +790,16 @@ function makeCard(item, colorHex, isStar){
       <div class="face back" style="background:${colorHex}">
         <div class="example-zh">${item.zh}</div>
         <div class="pattern-name-zh">${item.name}</div>
+        <div class="structure-tag">句型：${item.structure || ''}</div>
       </div>
     </div>
   `;
-  card.addEventListener('click', () => card.classList.toggle('flipped'));
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+    sparkleBurst(card);
+  });
   return card;
 }
-
-['A','B','C','D','E'].forEach(u => {
-  const container = document.getElementById('unit' + u);
-  data[u].forEach(item => container.appendChild(makeCard(item, UNIT_COLORS[u].c, false)));
-});
-
-const bonusContainer = document.getElementById('bonus');
-data.S.forEach(item => bonusContainer.appendChild(makeCard(item, UNIT_COLORS.S.c, true)));
 
 /* ---------- 單字複習 ---------- */
 const vocab = [
@@ -563,7 +820,7 @@ const vocab = [
     {en:'window', zh:'窗戶', e:'🪟'}, {en:'clock', zh:'時鐘', e:'🕐'},
     {en:'mirror', zh:'鏡子', e:'🪞'}, {en:'blanket', zh:'毯子', e:'🧣'},
     {en:'door', zh:'門', e:'🚪'}, {en:'lamp', zh:'檯燈', e:'💡'},
-    {en:'pink', zh:'粉紅色', e:'🩷'}, {en:'gray', zh:'灰色', e:'⬜'},
+    {en:'pink', zh:'粉紅色', e:'🩷'}, {en:'gray', zh:'灰色', e:'<span style="display:inline-block;width:26px;height:26px;background:#9e9e9e;border-radius:6px;"></span>'},
     {en:'black', zh:'黑色', e:'⬛'}, {en:'white', zh:'白色', e:'🤍'},
     {en:'brown', zh:'棕色', e:'🟤'},
   ]},
@@ -601,7 +858,7 @@ const vocab = [
   ]},
   {title:'食物與文具 Food & School Things', color:UNIT_COLORS.D.c, words:[
     {en:'notebook', zh:'筆記本', e:'📓'}, {en:'pencil case', zh:'鉛筆盒', e:'🖊️'},
-    {en:'butterfly', zh:'蝴蝶', e:'🦋'}, {en:'snake', zh:'蛇', e:'🐍'},
+    {en:'butterfly', zh:'蝴蝶', e:'🦋'},
     {en:'soup', zh:'湯', e:'🍲'}, {en:'steak', zh:'牛排', e:'🥩'},
     {en:'cake', zh:'蛋糕', e:'🍰'}, {en:'cheese', zh:'起司', e:'🧀'},
     {en:'ice cream', zh:'冰淇淋', e:'🍨'}, {en:'bread', zh:'麵包', e:'🍞'},
@@ -609,19 +866,469 @@ const vocab = [
   ]},
 ];
 
-const vocabSection = document.getElementById('vocabSection');
+const vocabSection = document.getElementById('vocabSectionG');
 vocab.forEach(group => {
   const gDiv = document.createElement('div');
   gDiv.className = 'vocab-group';
-  const row = group.words.map(w => `
-    <div class="vchip">
-      <div class="ve">${w.e}</div>
-      <div class="ven">${w.en}</div>
-      <div class="vzh">${w.zh}</div>
-    </div>
-  `).join('');
-  gDiv.innerHTML = `<h3 style="background:${group.color}">${group.title}</h3><div class="vocab-row">${row}</div>`;
+  const h3 = document.createElement('h3');
+  h3.style.background = group.color;
+  h3.textContent = group.title;
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'vocab-row';
+  group.words.forEach(w => rowDiv.appendChild(makeVocabCard(w, group.color)));
+  gDiv.appendChild(h3);
+  gDiv.appendChild(rowDiv);
   vocabSection.appendChild(gDiv);
+});
+
+/* ---------- 第二本教材：新句型 ---------- */
+const patternsF = [
+  {name:'打招呼', en:'A: Hello! B: Hi!', zh:'A：哈囉！B：嗨！', structure:'兩人見面打招呼的對話', emoji:'🙋‍♀️👋'},
+  {name:'說再見', en:'A: Goodbye! B: Bye!', zh:'A：再見！B：掰掰！', structure:'兩人道別的對話', emoji:'👋😊'},
+  {name:'Can 的用法（能力）', en:'Can you swim? Yes, I can.', zh:'你會游泳嗎？我會。', structure:'Can + 主詞 + 動詞原形? ／ Yes, + 主詞 + can.', emoji:'🏊'},
+  {name:'Who\'s 的用法（家人）', en:"Who's (Who is) she? She's (She is) my mother.", zh:'她是誰？她是我媽媽。', structure:'Who is + 主詞? ／ 主詞 + is + my + 名詞.', emoji:'👩'},
+  {name:'第三人稱姓名詢問', en:"What's (What is) his name? His name's (name is) Ben.", zh:'他叫什麼名字？他叫Ben。', structure:'What is + his/her + name? ／ His name is + 名字.', emoji:'🧑'},
+  {name:'Is this 的用法（動物）', en:"Is this a dog? Yes, it is.", zh:'這是狗嗎？對，是的。', structure:'Is this + a/an + 名詞? ／ Yes, it is.', emoji:'🐶'},
+  {name:'What color 的用法', en:"What color is this? It's (It is) blue.", zh:'這是什麼顏色？是藍色。', structure:'What color is + this/that? ／ It is + 顏色.', emoji:'<span style="display:inline-block;width:30px;height:30px;background:#3f8ecf;border-radius:50%;"></span>'},
+  {name:'How old 的用法（他人）', en:"How old is your brother? He's (He is) seven.", zh:'你哥哥幾歲？他七歲。', structure:'How old is + 主詞? ／ 主詞 + is + 數字.', emoji:'🧒7️⃣'},
+  {name:'What\'s this 的用法（教室物品）', en:"What's (What is) this? It's (It is) an eraser.", zh:'這是什麼？是橡皮擦。', structure:'What is + this/that? ／ It is + a/an + 名詞.', emoji:'<div style="margin:0 auto;width:32px;height:20px;background:#f48fb1;border-radius:4px;position:relative;overflow:hidden;"><div style="position:absolute;bottom:0;width:100%;height:7px;background:#fff;"></div></div>'},
+  {name:'How are you 打招呼', en:"How are you? I'm (I am) fine, thanks.", zh:'你好嗎？我很好，謝謝。', structure:'How + are + you? ／ I am + 形容詞.', emoji:'😊'},
+  {name:'How old 的用法（自己）', en:"How old are you? I'm (I am) eight.", zh:'你幾歲？我八歲。', structure:'How old + are + you? ／ I am + 數字.', emoji:'🎂8️⃣'},
+  {name:'所有格 \'s 的用法', en:"This is Tom's ball.", zh:'這是湯姆的球。', structure:'This is + 名字\'s + 名詞.', emoji:'⚽'},
+];
+
+const unitF = document.getElementById('unitF');
+patternsF.forEach((item, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-inner">
+      <div class="face front">
+        <span class="lesson-tag" style="background:var(--unitF)">第 ${i+1} 句</span>
+        <p class="pattern-name">${item.name}</p>
+        <div class="emoji-row">${item.emoji}</div>
+        <div class="example-en">"${item.en}"</div>
+        <div class="tap-hint">👆 點我看中文</div>
+      </div>
+      <div class="face back" style="background:var(--unitF)">
+        <div class="example-zh">${item.zh}</div>
+        <div class="pattern-name-zh">${item.name}</div>
+        <div class="structure-tag">句型：${item.structure}</div>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+    sparkleBurst(card);
+  });
+  unitF.appendChild(card);
+});
+
+/* ---------- 第二本教材：新單字 ---------- */
+const vocab2 = [
+  {title:'打招呼 Greetings', color:'var(--unitF)', words:[
+    {en:'hello', zh:'哈囉', e:'🙋'}, {en:'hi', zh:'嗨', e:'🖐️'},
+    {en:'goodbye', zh:'再見', e:'👋'}, {en:'bye', zh:'掰掰', e:'✌️'},
+  ]},
+  {title:'教室用品 Classroom Things', color:UNIT_COLORS.A.c, words:[
+    {en:'table', zh:'桌子', e:'<div style="margin:0 auto;width:34px;"><div style="width:34px;height:6px;background:#c98a53;border-radius:2px;"></div><div style="display:flex;justify-content:space-between;margin-top:1px;"><div style="width:3px;height:14px;background:#a86f3f;"></div><div style="width:3px;height:14px;background:#a86f3f;"></div></div></div>'}, {en:'desk', zh:'書桌', e:'<div style="margin:0 auto;width:30px;"><div style="width:30px;height:6px;background:#6d8a4a;border-radius:2px;"></div><div style="width:22px;height:12px;background:#8fae63;margin:1px auto 0;border-radius:1px;"></div></div>'},
+    {en:'chair', zh:'椅子', e:'🪑'}, {en:'book', zh:'書', e:'📖'},
+    {en:'pencil', zh:'鉛筆', e:'✏️'}, {en:'eraser', zh:'橡皮擦', e:'<div style="margin:0 auto;width:28px;height:18px;background:#f48fb1;border-radius:4px;position:relative;overflow:hidden;"><div style="position:absolute;bottom:0;width:100%;height:6px;background:#fff;"></div></div>'},
+  ]},
+  {title:'家人 Family', color:UNIT_COLORS.B.c, words:[
+    {en:'family', zh:'家人', e:'👪'}, {en:'mother', zh:'媽媽', e:'👩'},
+    {en:'father', zh:'爸爸', e:'👨'}, {en:'sister', zh:'姊妹', e:'👧'},
+    {en:'brother', zh:'兄弟', e:'👦'}, {en:'friend', zh:'朋友', e:'🧑‍🤝‍🧑'},
+  ]},
+  {title:'稱呼 People', color:UNIT_COLORS.C.c, words:[
+    {en:'teacher', zh:'老師', e:'👩‍🏫'}, {en:'student', zh:'學生', e:'🧑‍🎓'},
+    {en:'parent', zh:'父母', e:'👨👩'}, {en:'baby', zh:'寶寶', e:'👶'},
+    {en:'girl', zh:'女孩', e:'👧'}, {en:'boy', zh:'男孩', e:'👦'},
+  ]},
+  {title:'能力動詞 Abilities', color:UNIT_COLORS.D.c, words:[
+    {en:'fly', zh:'飛', e:'🕊️'}, {en:'read', zh:'閱讀', e:'📖'},
+    {en:'sing', zh:'唱歌', e:'🎤'}, {en:'draw', zh:'畫畫', e:'🎨'},
+    {en:'swim', zh:'游泳', e:'🏊'}, {en:'cook', zh:'煮飯', e:'🍳'},
+  ]},
+  {title:'動物 Animals', color:UNIT_COLORS.E.c, words:[
+    {en:'whale', zh:'鯨魚', e:'🐋'}, {en:'penguin', zh:'企鵝', e:'🐧'},
+    {en:'polar bear', zh:'北極熊', e:'🐻‍❄️'}, {en:'giraffe', zh:'長頸鹿', e:'🦒'},
+    {en:'leopard', zh:'豹', e:'🐆'}, {en:'ostrich', zh:'鴕鳥', e:'🦤'},
+  ]},
+  {title:'顏色 Colors', color:'var(--unitF)', words:[
+    {en:'red', zh:'紅色', e:'🔴'}, {en:'yellow', zh:'黃色', e:'🟡'},
+    {en:'blue', zh:'藍色', e:'🔵'}, {en:'green', zh:'綠色', e:'🟢'},
+    {en:'orange', zh:'橘色', e:'🟠'}, {en:'purple', zh:'紫色', e:'🟣'},
+  ]},
+  {title:'生日派對 Birthday', color:UNIT_COLORS.A.c, words:[
+    {en:'balloons', zh:'氣球', e:'🎈'}, {en:'candles', zh:'蠟燭', e:'🕯️'},
+    {en:'presents', zh:'禮物', e:'🎁'}, {en:'cookies', zh:'餅乾', e:'🍪'},
+    {en:'plates', zh:'盤子', e:'🍽️'}, {en:'cups', zh:'杯子', e:'🥤'},
+  ]},
+  {title:'數字 1–12 Numbers', color:UNIT_COLORS.B.c, words:[
+    {en:'one', zh:'1', e:'1️⃣'}, {en:'two', zh:'2', e:'2️⃣'},
+    {en:'three', zh:'3', e:'3️⃣'}, {en:'four', zh:'4', e:'4️⃣'},
+    {en:'five', zh:'5', e:'5️⃣'}, {en:'six', zh:'6', e:'6️⃣'},
+    {en:'seven', zh:'7', e:'7️⃣'}, {en:'eight', zh:'8', e:'8️⃣'},
+    {en:'nine', zh:'9', e:'9️⃣'}, {en:'ten', zh:'10', e:'🔟'},
+    {en:'eleven', zh:'11', e:'1️⃣1️⃣'}, {en:'twelve', zh:'12', e:'1️⃣2️⃣'},
+  ]},
+];
+
+const vocabSection2 = document.getElementById('vocabSection2');
+vocab2.forEach(group => {
+  const gDiv = document.createElement('div');
+  gDiv.className = 'vocab-group';
+  const h3 = document.createElement('h3');
+  h3.style.background = group.color;
+  h3.textContent = group.title;
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'vocab-row';
+  group.words.forEach(w => rowDiv.appendChild(makeVocabCard(w, group.color)));
+  gDiv.appendChild(h3);
+  gDiv.appendChild(rowDiv);
+  vocabSection2.appendChild(gDiv);
+});
+
+/* ================= PART 2：Gogo Loves English 第二冊 句型 ================= */
+const patternsG = [
+  {name:'Can 的用法（提議一起做）', en:'Can you draw? Yes, I can. Let\'s draw!', zh:'你會畫畫嗎？我會。我們畫畫吧！', structure:'Can + 主詞 + 動詞原形? Yes, 主詞 + can. Let\'s + 動詞原形!', emoji:'🎨'},
+  {name:'be動詞 + 形容詞（大小相反詞）', en:"They're (They are) big. We're (We are) small.", zh:'他們很大。我們很小。', structure:'主詞 + be動詞 + 形容詞（相反詞）.', emoji:'<span style="font-size:1.3em">🐘</span><span style="font-size:0.6em;vertical-align:top;">🐭</span>'},
+  {name:'We like 的用法', en:"Good. We like baseball. Let's play!", zh:'太好了。我們喜歡棒球。我們來玩吧！', structure:'We like + 名詞. Let\'s + 動詞原形!', emoji:'⚾'},
+  {name:'Is that 的用法（動物顏色）', en:"Is that a green cat? Yes, it is. It's (It is) a green cat.", zh:'那是綠色的貓嗎？對，是的。牠是綠色的貓。', structure:'Is that + a + 形容詞 + 名詞? Yes, it is.', emoji:'🐱<span style="display:inline-block;width:18px;height:18px;background:#4caf50;border-radius:50%;margin-left:6px;vertical-align:middle;"></span>'},
+  {name:'Are these 的用法', en:'Are these bananas? Yes, they are.', zh:'這些是香蕉嗎？對，是的。', structure:'Are these + 複數名詞? Yes, they are.', emoji:'🍌🍌'},
+  {name:'Where are 的用法（複數）', en:"Where are my pencils? They're (They are) in the box.", zh:'我的鉛筆在哪裡？在盒子裡。', structure:'Where are + my + 複數名詞? They are + in/on/under + 地點.', emoji:'<div class="mini-scene"><div class="scene-box">✏️</div></div>'},
+  {name:'Is it 的用法（時間）', en:"Is it eleven o'clock? No, it isn't. It's (It is) twelve o'clock.", zh:'現在是十一點嗎？不是，是十二點。', structure:'Is it + 時間? No, it isn\'t. It is + 時間.', emoji:'🕛'},
+  {name:'How many 的用法', en:'How many peaches are there? There are twenty peaches.', zh:'有幾顆桃子？有二十顆桃子。', structure:'How many + 複數名詞 + are there? There are + 數字 + 複數名詞.', emoji:'<div class="orange-grid">' + '🍑'.repeat(20) + '</div>'},
+  {name:'Does 否定句的用法', en:"Does she have napkins? No, she doesn't (does not). She has glasses.", zh:'她有餐巾紙嗎？沒有，她有玻璃杯。', structure:'Does + 主詞 + have + 名詞? No, 主詞 + doesn\'t. 主詞 + has + 名詞.', emoji:'🧻❌🥃'},
+  {name:'I like / I don\'t like 的用法', en:"I like cheese, cake, ice cream and noodles. I don't (do not) like ants.", zh:'我喜歡起司、蛋糕、冰淇淋和麵條。我不喜歡螞蟻。', structure:'I like + 名詞, 名詞 and 名詞. I don\'t like + 名詞.', emoji:'🧀🍰🐜🙅'},
+  {name:'It is + a/an + 名詞（顏色）', en:"It's (It is) a pencil. It's (It is) red.", zh:'這是一枝鉛筆，它是紅色的。', structure:'It is + a/an + 名詞. ／ It is + 形容詞.', emoji:'<div style="display:inline-flex;align-items:center;transform:rotate(-40deg);"><div style="width:8px;height:8px;background:#f2c14e;border-radius:2px 0 0 2px;"></div><div style="width:42px;height:8px;background:#e63946;"></div><div style="width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:8px solid #3d2b1f;"></div></div>'},
+  {name:'They are + 複數名詞', en:"They're (They are) apples.", zh:'它們是蘋果。', structure:'They are + 複數名詞.', emoji:'🍎🍎🍎'},
+  {name:'Look! + be動詞 + 形容詞', en:"Look! I'm (I am) big.", zh:'你看！我好大。', structure:'Look! 主詞 + am/is/are + 形容詞.', emoji:'<span style="font-size:1.35em">🐘</span><span style="font-size:0.55em;vertical-align:top;">🐭</span>'},
+  {name:'Do you like 的一般疑問句', en:'Do you like soccer? Yes, I do.', zh:'你喜歡足球嗎？對，我喜歡。', structure:'Do + you + 動詞原形 + 受詞? Yes, + 主詞 + do.', emoji:'⚽👍'},
+  {name:'No, I don\'t 的用法', en:"No, I don't (do not). I like baseball.", zh:'不，我不喜歡。我喜歡棒球。', structure:'No, 主詞 + don\'t/doesn\'t. 主詞 + like + 名詞.', emoji:'⚾🙅'},
+  {name:'Where\'s 的用法（在桌上）', en:"Where's (Where is) my book? It's (It is) on the desk.", zh:'我的書呢？在書桌上。', structure:'Where is + my + 名詞? ／ It is + on + 地點.', emoji:'<div class="mini-scene"><span class="scene-obj">📖</span><div class="scene-desk"></div></div>'},
+  {name:'What\'s this 的用法（鉛筆）', en:"What's (What is) this? It's (It is) a pencil.", zh:'這是什麼？是一枝鉛筆。', structure:'What is + this/that? ／ It is + a/an + 名詞.', emoji:'✏️'},
+  {name:'Who\'s he 的用法（兄弟）', en:"Who's (Who is) he? He's (He is) my brother.", zh:'他是誰？他是我哥哥。', structure:'Who is + 主詞? ／ 主詞 + is + my + 名詞.', emoji:'👦'},
+  {name:'Where are 的用法（襪子）', en:'Where are my socks?', zh:'我的襪子呢？', structure:'Where + are + my + 複數名詞?', emoji:'🧦🔍'},
+  {name:'主詞 + are + in + 地點', en:'My pencils are in the box.', zh:'我的鉛筆在盒子裡。', structure:'主詞 + are + in + 地點.', emoji:'<div class="mini-scene"><div class="scene-box">✏️</div></div>'},
+  {name:'主詞 + is + on + 地點', en:"The lamp is on the desk.", zh:'檯燈在書桌上。', structure:'主詞 + is + on + 地點.', emoji:'<div class="mini-scene"><span class="scene-obj">💡</span><div class="scene-desk"></div></div>'},
+  {name:'There are + 數字 + 名詞', en:'There are fifteen oranges.', zh:'有十五顆橘子。', structure:'There are + 數字 + 複數名詞.', emoji:'<div class="orange-grid">' + '🍊'.repeat(15) + '</div>'},
+  {name:'Do you have 的用法（盤子）', en:'Do you have plates?', zh:'你有盤子嗎？', structure:'Do + you + have + 複數名詞?', emoji:'🍽️'},
+  {name:'Do/Does have 的問句', en:"Do you have forks? Does she have napkins?", zh:'你有叉子嗎？她有餐巾紙嗎？', structure:'Do/Does + 主詞 + have + 受詞?', emoji:'🍴🧻'},
+  {name:'Yes, we do 的用法', en:'Do you have cups? Yes, we do.', zh:'你們有杯子嗎？有的。', structure:'Yes, + 主詞 + do.', emoji:'🥤🥤'},
+  {name:'There are many + 名詞', en:'There are many peaches.', zh:'有很多桃子。', structure:'There are + many + 複數名詞.', emoji:'🍑🍑🍑'},
+  {name:'The color of + 名詞', en:'The color of the door is brown.', zh:'門的顏色是棕色的。', structure:'The + 名詞 + of + the + 名詞 + is + 顏色.', emoji:'🚪<span style="display:inline-block;width:18px;height:18px;background:#8b5e34;border-radius:4px;margin-left:6px;vertical-align:middle;"></span>'},
+  {name:'When ＋ 時間', en:"When do you eat lunch? At twelve o'clock.", zh:'你什麼時候吃午餐？十二點的時候。', structure:'When + do + 主詞 + 動詞原形? ／ At + 時間.', emoji:'🕛🍱'},
+];
+
+const unitG = document.getElementById('unitG');
+patternsG.forEach((item, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-inner">
+      <div class="face front">
+        <span class="lesson-tag" style="background:var(--unitG)">第 ${i+1} 句</span>
+        <p class="pattern-name">${item.name}</p>
+        <div class="emoji-row">${item.emoji}</div>
+        <div class="example-en">"${item.en}"</div>
+        <div class="tap-hint">👆 點我看中文</div>
+      </div>
+      <div class="face back" style="background:var(--unitG)">
+        <div class="example-zh">${item.zh}</div>
+        <div class="pattern-name-zh">${item.name}</div>
+        <div class="structure-tag">句型：${item.structure}</div>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+    sparkleBurst(card);
+  });
+  unitG.appendChild(card);
+});
+
+/* ================= PART 1 補充：字母自然發音 A–Z ================= */
+const alphabetData = [
+  {title:'字母 A–G', color:'var(--unitF)', words:[
+    {en:'apple', zh:'蘋果', e:'🍎'}, {en:'ant', zh:'螞蟻', e:'🐜'},
+    {en:'banana', zh:'香蕉', e:'🍌'}, {en:'bear', zh:'熊', e:'🐻'},
+    {en:'cat', zh:'貓', e:'🐱'}, {en:'carrot', zh:'紅蘿蔔', e:'🥕'},
+    {en:'dog', zh:'狗', e:'🐶'}, {en:'duck', zh:'鴨子', e:'🦆'},
+    {en:'elephant', zh:'大象', e:'🐘'}, {en:'egg', zh:'蛋', e:'🥚'},
+    {en:'fish', zh:'魚', e:'🐟'}, {en:'fox', zh:'狐狸', e:'🦊'},
+    {en:'goat', zh:'山羊', e:'🐐'}, {en:'girl', zh:'女孩', e:'👧'},
+  ]},
+  {title:'字母 H–N', color:UNIT_COLORS.B.c, words:[
+    {en:'hippo', zh:'河馬', e:'🦛'}, {en:'hat', zh:'帽子', e:'👒'},
+    {en:'iguana', zh:'鬣蜥', e:'🦎'}, {en:'igloo', zh:'冰屋', e:'🧊'},
+    {en:'juice', zh:'果汁', e:'🧃'}, {en:'jellyfish', zh:'水母', e:'🪼'},
+    {en:'kangaroo', zh:'袋鼠', e:'🦘'}, {en:'kite', zh:'風箏', e:'🪁'},
+    {en:'lion', zh:'獅子', e:'🦁'}, {en:'lemon', zh:'檸檬', e:'🍋'},
+    {en:'monkey', zh:'猴子', e:'🐒'}, {en:'melon', zh:'哈密瓜', e:'🍈'},
+    {en:'noodles', zh:'麵條', e:'🍜'}, {en:'nose', zh:'鼻子', e:'👃'},
+  ]},
+  {title:'字母 O–T', color:UNIT_COLORS.C.c, words:[
+    {en:'octopus', zh:'章魚', e:'🐙'}, {en:'ox', zh:'牛', e:'🐂'},
+    {en:'panda', zh:'貓熊', e:'🐼'}, {en:'piano', zh:'鋼琴', e:'🎹'},
+    {en:'queen', zh:'皇后', e:'👸'}, {en:'question', zh:'問題', e:'❓'},
+    {en:'rabbit', zh:'兔子', e:'🐰'}, {en:'rice', zh:'米飯', e:'🍚'},
+    {en:'sun', zh:'太陽', e:'☀️'}, {en:'soccer', zh:'足球', e:'⚽'},
+    {en:'tiger', zh:'老虎', e:'🐯'}, {en:'TV', zh:'電視', e:'📺'},
+  ]},
+  {title:'字母 U–Z', color:UNIT_COLORS.D.c, words:[
+    {en:'umbrella', zh:'雨傘', e:'☂️'}, {en:'unhappy', zh:'不開心', e:'😞'},
+    {en:'violin', zh:'小提琴', e:'🎻'}, {en:'volleyball', zh:'排球', e:'🏐'},
+    {en:'watch', zh:'手錶', e:'⌚'}, {en:'witch', zh:'女巫', e:'🧙'},
+    {en:'x-ray', zh:'X光片', e:'🩻'}, {en:'exercise', zh:'運動', e:'🤸'},
+    {en:'yo-yo', zh:'溜溜球', e:'🪀'}, {en:'yogurt', zh:'優格', e:'<div style="margin:0 auto;width:22px;height:20px;background:#fff8f0;border:2px solid #e0c9a6;border-radius:3px 3px 8px 8px;position:relative;"><div style="position:absolute;top:-6px;right:-4px;width:3px;height:12px;background:#e63946;transform:rotate(20deg);"></div></div>'},
+    {en:'zebra', zh:'斑馬', e:'🦓'}, {en:'zoo', zh:'動物園', e:'📍'},
+  ]},
+];
+
+const alphabetSection = document.getElementById('alphabetSection');
+alphabetData.forEach(group => {
+  const gDiv = document.createElement('div');
+  gDiv.className = 'vocab-group';
+  const h3 = document.createElement('h3');
+  h3.style.background = group.color;
+  h3.textContent = group.title;
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'vocab-row';
+  group.words.forEach(w => rowDiv.appendChild(makeVocabCard(w, group.color)));
+  gDiv.appendChild(h3);
+  gDiv.appendChild(rowDiv);
+  alphabetSection.appendChild(gDiv);
+});
+
+/* ================= PART 2 補充：Sounds and Words 自然發音 ================= */
+const phonicsData = [
+  {title:'th 的發音（this/that）', color:'var(--unitG)', words:[
+    {en:'this', zh:'這個', e:'👉'}, {en:'that', zh:'那個', e:'👈'},
+    {en:'these', zh:'這些', e:'📚'}, {en:'those', zh:'那些', e:'📖'},
+    {en:'mother', zh:'媽媽', e:'👩'}, {en:'father', zh:'爸爸', e:'👨'},
+  ]},
+  {title:'th 的發音（thin/thick）', color:UNIT_COLORS.A.c, words:[
+    {en:'thin', zh:'薄的', e:'<div style="width:8px;height:34px;background:#4a90d9;border-radius:3px;margin:0 auto;"></div>'}, {en:'bathroom', zh:'浴室', e:'🚿'},
+    {en:'thumb', zh:'大拇指', e:'👍'}, {en:'thick', zh:'厚的', e:'<div style="width:30px;height:34px;background:#4a90d9;border-radius:4px;margin:0 auto;"></div>'},
+    {en:'math', zh:'數學', e:'🔢'}, {en:'thanks', zh:'謝謝', e:'🙏'},
+  ]},
+  {title:'長音 a（play/cake）', color:UNIT_COLORS.B.c, words:[
+    {en:'baseball', zh:'棒球', e:'⚾'}, {en:'play', zh:'玩耍', e:'🛝'},
+    {en:'game', zh:'遊戲', e:'♟️'}, {en:'rain', zh:'下雨', e:'🌧️'},
+    {en:'cake', zh:'蛋糕', e:'🍰'}, {en:'airplane', zh:'飛機', e:'✈️'},
+  ]},
+  {title:'sh 的發音', color:UNIT_COLORS.C.c, words:[
+    {en:'shirt', zh:'襯衫', e:'👕'}, {en:'shoes', zh:'鞋子', e:'👟'},
+    {en:'shorts', zh:'短褲', e:'🩳'}, {en:'shark', zh:'鯊魚', e:'🦈'},
+    {en:'sheep', zh:'綿羊', e:'🐑'}, {en:'fish', zh:'魚', e:'🐟'},
+  ]},
+  {title:'複數 -s / -es', color:UNIT_COLORS.D.c, words:[
+    {en:'cups', zh:'杯子', e:'🥤'}, {en:'watermelons', zh:'西瓜', e:'🍉'},
+    {en:'boxes', zh:'盒子', e:'📦'}, {en:'books', zh:'書', e:'📚'},
+    {en:'plums', zh:'李子', e:'<div style="margin:0 auto;width:22px;"><div style="width:6px;height:8px;background:#4a7c3f;margin:0 auto -2px;border-radius:2px;"></div><div style="width:22px;height:20px;background:#7b3f8f;border-radius:50%;"></div></div>'}, {en:'buses', zh:'公車', e:'🚌'},
+  ]},
+  {title:'oo 的發音（look/book）', color:UNIT_COLORS.E.c, words:[
+    {en:'cook', zh:'煮飯', e:'👨‍🍳'}, {en:'foot', zh:'腳', e:'🦶'},
+    {en:'push', zh:'推', e:'🫸'}, {en:'look', zh:'看', e:'👀'},
+    {en:'wood', zh:'木頭', e:'🪵'}, {en:'pull', zh:'拉', e:'🫳⬅️'},
+  ]},
+  {title:'長音 i（bike/kite）', color:'var(--unitG)', words:[
+    {en:'ride', zh:'騎乘', e:'🚴'}, {en:'bike', zh:'腳踏車', e:'🚲'},
+    {en:'white', zh:'白色', e:'🤍'}, {en:'kite', zh:'風箏', e:'🪁'},
+    {en:'rice', zh:'米飯', e:'🍚'}, {en:'light', zh:'燈', e:'💡'},
+  ]},
+  {title:'ve 的發音（five/wave）', color:UNIT_COLORS.A.c, words:[
+    {en:'five', zh:'五', e:'5️⃣'}, {en:'glove', zh:'手套', e:'🧤'},
+    {en:'above', zh:'在上方', e:'⬆️'}, {en:'twelve', zh:'十二', e:'1️⃣2️⃣'},
+    {en:'dove', zh:'鴿子', e:'🕊️'}, {en:'wave', zh:'海浪', e:'🌊'},
+  ]},
+  {title:'短母音混合（cap/map）', color:UNIT_COLORS.B.c, words:[
+    {en:'cap', zh:'帽子', e:'🧢'}, {en:'map', zh:'地圖', e:'🗺️'},
+    {en:'rope', zh:'繩子', e:'🪢'}, {en:'ship', zh:'船', e:'🚢'},
+    {en:'sleep', zh:'睡覺', e:'😴'}, {en:'soap', zh:'肥皂', e:'🧼'},
+  ]},
+];
+
+const phonicsSection = document.getElementById('phonicsSection');
+phonicsData.forEach(group => {
+  const gDiv = document.createElement('div');
+  gDiv.className = 'vocab-group';
+  const h3 = document.createElement('h3');
+  h3.style.background = group.color;
+  h3.textContent = group.title;
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'vocab-row';
+  group.words.forEach(w => rowDiv.appendChild(makeVocabCard(w, group.color)));
+  gDiv.appendChild(h3);
+  gDiv.appendChild(rowDiv);
+  phonicsSection.appendChild(gDiv);
+});
+
+/* ================= PART 3：統整複習清單（合併第一冊＋第二冊） ================= */
+const summaryList = document.getElementById('summaryList');
+
+function addSummaryGroup(title, items, dotColor){
+  const titleEl = document.createElement('div');
+  titleEl.className = 'summary-group-title';
+  titleEl.style.color = dotColor;
+  titleEl.textContent = title;
+  summaryList.appendChild(titleEl);
+
+  items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'summary-row';
+    row.innerHTML = `
+      <div class="summary-dot" style="background:${dotColor}"></div>
+      <div class="summary-text">
+        <div class="s-en">${item.en}</div>
+        <div class="s-zh">${item.zh}</div>
+      </div>
+    `;
+    summaryList.appendChild(row);
+  });
+}
+
+addSummaryGroup('📕 第一冊句型', patternsF, 'var(--unitF)');
+addSummaryGroup('📗 第二冊句型', patternsG, 'var(--unitG)');
+
+const quizPatternData = [
+  {q:'「這是一枝鉛筆，它是紅色的。」', options:["It's a pencil. It's red.","It a pencil. Its red.","This a pencil. It is red.","It's pencil. It's red."], answer:0},
+  {q:'「它們是蘋果。」（注意：蘋果不是動物）', options:["It's apples.","They're apples.","He's apples.","They apple."], answer:1},
+  {q:'Look! I\'m ___.（你看！我好大。）', options:['big','bigly','bigger big','a big'], answer:0},
+  {q:'「你喜歡足球嗎？」', options:['You like soccer?','Do you like soccer?','Does you like soccer?','Are you like soccer?'], answer:1},
+  {q:'別人問你喜不喜歡棒球，你喜歡，怎麼回答？', options:['Yes, I do.','Yes, I am.','Yes, I can.','Yes, it is.'], answer:0},
+  {q:'「不，我不喜歡。我喜歡棒球。」', options:["No, I isn't. I like baseball.","No, I don't. I like baseball.","No, I not. I like baseball.","No, I doesn't. I like baseball."], answer:1},
+  {q:'「我的書呢？在書桌上。」', options:["Where's my book? It's on the desk.","Where my book? Its in the desk.","Where's my book? It on desk.","Where is my book? It on the desk."], answer:0},
+  {q:'「這是什麼？是一枝鉛筆。」', options:["What's this? It's a pencil.","What this? Is a pencil.","What's that? He's a pencil.","What is this? Is pencil."], answer:0},
+  {q:'「他是誰？他是我哥哥。」', options:["Who's he? He's my brother.","Who he? He my brother.","Who's he? He's my mother.","Who's she? She's my brother."], answer:0},
+  {q:'「你好嗎？我很好，謝謝。」', options:["How are you? I'm fine, thanks.","How you? I fine thanks.","What are you? I'm fine.","How is you? I'm fine thanks."], answer:0},
+  {q:'「我的襪子呢？」（socks 是複數喔）', options:["Where's my socks?","Where are my socks?","Where my socks?","Where is my sock?"], answer:1},
+  {q:'「我的鉛筆在盒子裡。」', options:['My pencils are in the box.','My pencils is in the box.','My pencil are on the box.','My pencils are on the box.'], answer:0},
+  {q:'「檯燈在書桌上。」', options:['The lamp is on the desk.','The lamp is in the desk.','The lamp are on the desk.','The lamp on the desk.'], answer:0},
+  {q:'「有十五顆橘子。」', options:['There are fifteen oranges.','There is fifteen oranges.','There are fifteen orange.','There have fifteen oranges.'], answer:0},
+  {q:'「你有盤子嗎？」', options:['Do you have plates?','Are you have plates?','Do you has plates?','You have plates?'], answer:0},
+  {q:'「她有餐巾紙嗎？」', options:['Does she have napkins?','Do she have napkins?','Does she has napkins?','Is she have napkins?'], answer:0},
+  {q:'別人問「你們有杯子嗎？」你們有，怎麼回答？', options:['Yes, we do.','Yes, we are.','Yes, we have.','Yes, we can.'], answer:0},
+  {q:'「我不喜歡螞蟻。」', options:["I don't like ants.",'I not like ants.',"I doesn't like ants.","I isn't like ants."], answer:0},
+  {q:'「有很多桃子。」', options:['There are many peaches.','There are much peaches.','There is many peaches.','There are many peach.'], answer:0},
+  {q:'「你什麼時候吃午餐？十二點的時候。」', options:['When do you eat lunch? At twelve o\'clock.','When you eat lunch? On twelve o\'clock.','When does you eat lunch? At twelve o\'clock.','What time you eat lunch? Twelve o\'clock.'], answer:0},
+  {q:'「你幾歲？我八歲。」', options:["How old are you? I'm eight.",'How old you? I eight.',"How old is you? I'm eight.","What old are you? I'm eight."], answer:0},
+  {q:'「這是湯姆的球。」', options:["This is Tom's ball.",'This is Toms ball.',"This is ball of Tom's.",'This Tom is ball.'], answer:0},
+  {q:'「門的顏色是棕色的。」', options:['The color of the door is brown.','The door color is brown.','The color the door is brown.','The door of color is brown.'], answer:0},
+  {q:'「你會游泳嗎？我會。」', options:['Can you swim? Yes, I can.','Do you swim? Yes, I do.','Are you swim? Yes, I am.','Can you swim? Yes, I do.'], answer:0},
+  {q:'「她是誰？她是我媽媽。」', options:["Who's she? She's my mother.","Who's she? He's my mother.",'Who she? She my mother.',"Who's her? She's my mother."], answer:0},
+  {q:'「他叫什麼名字？他叫Ben。」', options:["What's his name? His name's Ben.","What his name? He's name Ben.","Who's his name? His name's Ben.","What's her name? His name's Ben."], answer:0},
+  {q:'「這是狗嗎？對，是的。」', options:['Is this a dog? Yes, it is.','Is this dog? Yes, it do.','Are this a dog? Yes, it is.','Is this a dog? Yes, it does.'], answer:0},
+  {q:'「這是什麼顏色？是藍色。」', options:["What color is this? It's blue.","What's color this? Is blue.","What color this is? It's blue.","What colors is this? It's blue."], answer:0},
+  {q:'「你哥哥幾歲？他七歲。」', options:["How old is your brother? He's seven.",'How old your brother? He seven.',"How old are your brother? He's seven.","How old his brother? He's seven."], answer:0},
+  {q:'「這是什麼？是橡皮擦。」', options:["What's this? It's an eraser.","What's this? It's a eraser.","What's that? It's an eraser.",'What this? It an eraser.'], answer:0},
+];
+
+/* ---------- 單字測驗：30 題 ---------- */
+const quizVocabData = [
+  {q:'🐘 代表哪個字？', options:['small','big','heavy','light'], answer:1},
+  {q:'🥶 代表哪個字？', options:['hot','cold','sad','happy'], answer:1},
+  {q:'"sad" 是什麼意思？', options:['開心','難過','生氣','累'], answer:1},
+  {q:'⚽ 代表哪個運動？', options:['baseball','tennis','soccer','basketball'], answer:2},
+  {q:'"tennis" 是什麼意思？', options:['棒球','網球','桌球','排球'], answer:1},
+  {q:'🍓 代表哪個水果？', options:['grapes','strawberries','cherries','pears'], answer:1},
+  {q:'"grapes" 是什麼意思？', options:['葡萄','橘子','芒果','鳳梨'], answer:0},
+  {q:'🍊 代表哪個字？', options:['pineapples','oranges','peaches','mangoes'], answer:1},
+  {q:'🍍 代表哪個字？', options:['pineapples','grapes','cherries','strawberries'], answer:0},
+  {q:'🧦 代表哪個字？', options:['skirt','socks','pants','jacket'], answer:1},
+  {q:'"pants" 是什麼意思？', options:['裙子','外套','長褲','襪子'], answer:2},
+  {q:'🛏️ 代表哪個字？', options:['pillow','bed','blanket','mirror'], answer:1},
+  {q:'"pillow" 是什麼意思？', options:['枕頭','床','毯子','鏡子'], answer:0},
+  {q:'🚪 代表哪個字？', options:['window','door','lamp','mirror'], answer:1},
+  {q:'💡 代表哪個字？', options:['clock','lamp','window','mirror'], answer:1},
+  {q:'"brown" 是什麼顏色？', options:['棕色','灰色','黑色','白色'], answer:0},
+  {q:'🍴 代表哪個字？', options:['spoons','knives','forks','chopsticks'], answer:2},
+  {q:'🥄 代表哪個字？', options:['forks','spoons','knives','bowls'], answer:1},
+  {q:'🥢 代表哪個字？', options:['forks','spoons','chopsticks','knives'], answer:2},
+  {q:'🥣 代表哪個字？', options:['plates','cups','bowls','glasses'], answer:2},
+  {q:'🍰 代表哪個字？', options:['bread','cheese','cake','salad'], answer:2},
+  {q:'"bread" 是什麼意思？', options:['麵包','沙拉','起司','蛋糕'], answer:0},
+  {q:'👩\u200d🏫 代表哪個字？', options:['student','parent','teacher','friend'], answer:2},
+  {q:'"student" 是什麼意思？', options:['老師','學生','家長','朋友'], answer:1},
+  {q:'🐋 代表哪個字？', options:['penguin','whale','polar bear','leopard'], answer:1},
+  {q:'🦒 代表哪個字？', options:['leopard','ostrich','giraffe','polar bear'], answer:2},
+  {q:'"polar bear" 是什麼意思？', options:['企鵝','北極熊','鯨魚','長頸鹿'], answer:1},
+  {q:'🎈 代表哪個字？', options:['candles','balloons','presents','cookies'], answer:1},
+  {q:'"family" 是什麼意思？', options:['朋友','家人','老師','學生'], answer:1},
+  {q:'🏊 代表哪個能力動詞？', options:['fly','swim','sing','draw'], answer:1},
+];
+
+function initQuiz(containerId, data){
+  let idx = 0, score = 0, answered = false;
+  const container = document.getElementById(containerId);
+
+  function render(){
+    if(idx >= data.length){
+      container.innerHTML = `
+        <div class="quiz-done">
+          <div class="quiz-done-emoji">🎉</div>
+          <div class="quiz-done-score">你答對了 ${score} / ${data.length} 題！</div>
+          <button class="quiz-restart-btn">重新測驗</button>
+        </div>`;
+      container.querySelector('.quiz-restart-btn').addEventListener('click', () => {
+        idx = 0; score = 0; render();
+      });
+      return;
+    }
+    const item = data[idx];
+    answered = false;
+    container.innerHTML = `
+      <div class="quiz-progress">第 ${idx+1} / ${data.length} 題　得分：${score}</div>
+      <div class="quiz-question">${item.q}</div>
+      <div class="quiz-options">
+        ${item.options.map((opt,i) => `<button class="quiz-opt" data-i="${i}">${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback"></div>
+    `;
+    container.querySelectorAll('.quiz-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if(answered) return;
+        answered = true;
+        const chosen = parseInt(btn.dataset.i);
+        const correct = item.answer;
+        container.querySelectorAll('.quiz-opt').forEach(b => {
+          const bi = parseInt(b.dataset.i);
+          if(bi === correct) b.classList.add('correct');
+          else if(bi === chosen) b.classList.add('wrong');
+        });
+        const fb = container.querySelector('.quiz-feedback');
+        if(chosen === correct){
+          score++;
+          fb.textContent = '🎉 答對了！';
+          fb.className = 'quiz-feedback good';
+        } else {
+          fb.textContent = '再想想看～正確答案是「' + item.options[correct] + '」';
+          fb.className = 'quiz-feedback bad';
+        }
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'quiz-next-btn';
+        nextBtn.textContent = idx === data.length - 1 ? '看結果 →' : '下一題 →';
+        nextBtn.addEventListener('click', () => { idx++; render(); });
+        container.appendChild(nextBtn);
+      });
+    });
+  }
+  render();
+}
+
+initQuiz('quizPatternBox', quizPatternData);
+initQuiz('quizVocabBox', quizVocabData);
+
+document.querySelectorAll('.quiz-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.quiz-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const which = tab.dataset.quiz;
+    document.getElementById('quizPatternBox').style.display = which === 'pattern' ? 'block' : 'none';
+    document.getElementById('quizVocabBox').style.display = which === 'vocab' ? 'block' : 'none';
+  });
 });
 </script>
 
